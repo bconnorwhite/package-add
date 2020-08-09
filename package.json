@@ -1,7 +1,7 @@
 {
-  "name": "install-pkg",
+  "name": "package-add",
   "version": "1.0.0",
-  "description": "install packages from yarn or npm",
+  "description": "Programmatically install packages. Supports yarn, npm, and pnpm.",
   "main": "./build/index.js",
   "author": "Connor White",
   "license": "MIT",

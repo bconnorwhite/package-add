@@ -12,7 +12,7 @@ type Options = {
 ```
 
 ```ts
-import install from "install-pkg";
+import install from "package-add";
 
 install(["react", "react-dom"]);
 
