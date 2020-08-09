@@ -1,4 +1,4 @@
-# install-pkg
+# package-add
 Programmatically install packages. Supports yarn, npm, and pnpm.
 
 ```ts
