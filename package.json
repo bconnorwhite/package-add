@@ -1,0 +1,20 @@
+{
+  "name": "install-pkg",
+  "version": "1.0.0",
+  "description": "install packages from yarn or npm",
+  "main": "./build/index.js",
+  "author": "Connor White",
+  "license": "MIT",
+  "scripts": {
+    "build": "bob build",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@bconnorwhite/exec": "^3.0.1",
+    "preferred-pm": "^3.0.1"
+  },
+  "devDependencies": {
+    "@bconnorwhite/bob": "^1.6.0",
+    "@types/node": "^14.0.27"
+  }
+}
