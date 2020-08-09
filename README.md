@@ -2,7 +2,7 @@
 Programmatically install packages. Supports yarn, npm, and pnpm.
 
 ```ts
-install(pkg: string | string[], options: Options) => SpawnSyncReturns<Buffer>
+install(pkg: string | string[], options: Options) => Promise<SpawnSyncReturns<Buffer>>
 
 type Options = {
   registry?: string;

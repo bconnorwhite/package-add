@@ -1,7 +1,6 @@
-import getPreferred from "preferred-pm";
+import { getPackageManagerName, PackageManagerName } from "@bconnorwhite/package";
 import exec, { Flags } from "@bconnorwhite/exec";
 
-export type Name = "yarn" | "npm" | "pnpm";
 export type Save = "prod" | "dev" | "peer" | "optional" | "exact" | "bundle" | "tilde";
 
 export type Options = {
@@ -11,7 +10,7 @@ export type Options = {
 }
 
 type PackageManager = {
-  command: Name;
+  command: PackageManagerName;
   install: string;
   savePrefix: string;
   save: Save[];
@@ -52,18 +51,19 @@ function getSaveFlags(save: Save | undefined, pm: PackageManager): Flags {
   return retval;
 }
 
-const install = (pkg: string | string[], options: Options = {}) => {
-  const preferred = getPreferred(process.cwd()) ?? { name: "yarn" };
-  const pm = packageManagers[preferred.name];
-  return exec({
-    command: pm.command,
-    args: [pm.install].concat(pkg),
-    flags: {
-      registry: options.registry,
-      ...getSaveFlags(options.save, pm),
-      ["ignore-workspace-root-check"]: pm.workspaces && options.ignoreWorkspaceRootCheck
-    }
-  });
+const install = async (pkg: string | string[], options: Options = {}) => {
+  return getPackageManagerName().then((name) => {
+    const pm = packageManagers[name ?? "yarn"];
+    return exec({
+      command: pm.command,
+      args: [pm.install].concat(pkg),
+      flags: {
+        registry: options.registry,
+        ...getSaveFlags(options.save, pm),
+        ["ignore-workspace-root-check"]: pm.workspaces && options.ignoreWorkspaceRootCheck
+      }
+    });
+  })
 }
 
 export default install;
