@@ -5,7 +5,7 @@ export type Name = "yarn" | "npm" | "pnpm";
 export type Save = "prod" | "dev" | "peer" | "optional" | "exact" | "bundle" | "tilde";
 
 export type Options = {
-  registry: string;
+  registry?: string;
   save?: Save;
   ignoreWorkspaceRootCheck?: boolean;
 }
@@ -52,7 +52,7 @@ function getSaveFlags(save: Save | undefined, pm: PackageManager): Flags {
   return retval;
 }
 
-const install = (pkg: string | string[], options: Options) => {
+const install = (pkg: string | string[], options: Options = {}) => {
   const preferred = getPreferred(process.cwd()) ?? { name: "yarn" };
   const pm = packageManagers[preferred.name];
   return exec({
