@@ -1,6 +1,6 @@
 {
   "name": "package-add",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Programmatically install packages. Supports yarn, npm, and pnpm.",
   "main": "./build/index.js",
   "author": "Connor White",
