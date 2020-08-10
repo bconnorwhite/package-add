@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@bconnorwhite/exec": "^3.0.1",
-    "@bconnorwhite/package": "^2.2.0"
+    "@bconnorwhite/package": "^2.2.1"
   },
   "devDependencies": {
     "@bconnorwhite/bob": "^1.7.2",
