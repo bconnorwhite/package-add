@@ -51,10 +51,10 @@ function getSaveFlags(save: Save | undefined, pm: PackageManager): Flags {
   return retval;
 }
 
-const install = async (pkg: string | string[], options: Options = {}) => {
+export async function getCommand(pkg: string | string[], options: Options = {}) {
   return getPackageManagerName().then((name) => {
     const pm = packageManagers[name ?? "yarn"];
-    return exec({
+    return {
       command: pm.command,
       args: [pm.install].concat(pkg),
       flags: {
@@ -62,8 +62,14 @@ const install = async (pkg: string | string[], options: Options = {}) => {
         ...getSaveFlags(options.save, pm),
         ["ignore-workspace-root-check"]: pm.workspaces && options.ignoreWorkspaceRootCheck
       }
-    });
-  })
+    };
+  });
+};
+
+const install = async (pkg: string | string[], options: Options = {}) => {
+  return getCommand(pkg, options).then((command) => {
+    exec(command);
+  });
 }
 
 export default install;
