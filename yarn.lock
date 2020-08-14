@@ -967,10 +967,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@bconnorwhite/bob@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/bob/-/bob-1.7.2.tgz#158722f626052746b00071521c7e289be4211726"
-  integrity sha512-jvxotnFeNfW8Ot/kd9b9pW4rtRV7rqJi16Bpz8oRKPuVAgBpH3/JAz1cUTQCrbh4eZy3QxfhubkDhdsBbed1yg==
+"@bconnorwhite/bob@^1.7.7":
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/bob/-/bob-1.7.7.tgz#0359cdc895f0826354e8e48f9757275ed570e4f9"
+  integrity sha512-tn/Ea6iUnC0Ki8RUfTGd0IVJQoKnP/DMYmpqqOqivEdfT0nBwCv2lMTXk0chyFyddFrpLjVCfvZtuWafGKEDQA==
   dependencies:
     "@babel/cli" "^7.10.5"
     "@babel/core" "^7.10.5"
@@ -980,14 +980,14 @@
     "@babel/preset-typescript" "^7.10.4"
     "@babel/runtime" "^7.10.5"
     "@bconnorwhite/exec" "^3.0.3"
-    "@bconnorwhite/package" "^2.1.2"
-    "@bconnorwhite/run-env" "^1.1.0"
+    "@bconnorwhite/package" "^2.2.2"
+    "@bconnorwhite/run-env" "^1.1.4"
     chokidar "^3.4.1"
     commander "^6.0.0"
     dotenv "^8.2.0"
     find "^0.3.0"
     nodemon "^2.0.4"
-    package-run "^1.1.0"
+    package-run "^1.1.4"
     typescript "^3.9.7"
     wait-on "^5.1.0"
 
@@ -1001,22 +1001,6 @@
   resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-3.0.3.tgz#c4fbb4f247876e43cebe1916cfbd063ef68cde79"
   integrity sha512-NNFS2CcHX82P9jEAoj48Gsv93LaQr9iXcirymygXfQV/KEwSDWkdLZw7OE4cndzcunselYzjTEqa9S3FucdRRg==
 
-"@bconnorwhite/package@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.1.1.tgz#749b68cfd03b486d341e60fb22cb9d4d6f449fcb"
-  integrity sha512-LmJHPvXR9XxkSEvzAK2AVQ+q9nd/lZKBn2lSYjsYJrHvl4IQVbAbL4tTv5ppNTaKuBvhPxHx8ZSli5okzsFmOw==
-  dependencies:
-    path-exists "^4.0.0"
-    which-pm "^2.0.0"
-
-"@bconnorwhite/package@^2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.1.2.tgz#ee93b757645e469f1cab96a73595c695d5ceea92"
-  integrity sha512-57bcGeeDYJOPYgvCls4Dl5dUh39F4AgEYwNmNK6XJy+KRJ78IxVbmPqFUdO9EX3uNlcoz1prdoVSuwYXrsNNCA==
-  dependencies:
-    path-exists "^4.0.0"
-    which-pm "^2.0.0"
-
 "@bconnorwhite/package@^2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.2.2.tgz#55ee34ac396c13670e8cef97aa0951a6c9871e33"
@@ -1026,15 +1010,15 @@
     path-exists "^4.0.0"
     which-pm "^2.0.0"
 
-"@bconnorwhite/run-env@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.0.tgz#53a83a86afd4ad1806a9783b6aeb1d62387839f1"
-  integrity sha512-TSrltdwUIhBEhU3QKGDuXhtF8R7LPd9DKoon80PUkfDScma0Fe9C6vf/HlsM7Ww/qEmtUni7hHnEK6D2ICgaiw==
+"@bconnorwhite/run-env@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.4.tgz#33a230290a565cba17af3ea7c8dc284beac9d682"
+  integrity sha512-tmUplbS2j6Fi6MGqv0nvUFTsJwZWNx6YlgdOv3uiIz+dl6TMjnVVxgzMd8D64M1P0CPKqktXJuMA+YT7BMDL8Q==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
-    "@bconnorwhite/package" "^2.1.1"
+    "@bconnorwhite/package" "^2.2.2"
     dotenv "^8.2.0"
-    package-run "^1.1.0"
+    package-run "^1.1.4"
 
 "@hapi/address@^4.1.0":
   version "4.1.0"
@@ -2501,13 +2485,13 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
-package-run@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.0.tgz#982b548041394a9d19cca6b6c1d241c76cfc6f64"
-  integrity sha512-FpYBoKnv7S8xHtm1NIBGfjWBCkesXcrYZK/hdrg8nRzqoKdpGjSFZAu0VRNRVH3rlbUaQe5Ni7/q0tQ/BHWzqg==
+package-run@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.4.tgz#270051461b580ac8157b1452aa85cc44a572de9b"
+  integrity sha512-+U/QEpe4YE1b0tBv/jku3+byJn99c5qnjos4ul2kGzSD8WOCq06EFZc/sQvEOBYoKTMx7ho8/LlX6UAooIZe1g==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
-    "@bconnorwhite/package" "^2.1.1"
+    "@bconnorwhite/package" "^2.2.2"
 
 pascalcase@^0.1.1:
   version "0.1.1"
