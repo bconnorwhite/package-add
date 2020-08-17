@@ -1,4 +1,4 @@
-import { getPackageManagerName, PackageManagerName } from "@bconnorwhite/package";
+import { getPackageManagerName, PackageManagerName } from "which-pm-lockfile";
 import exec, { Flags } from "@bconnorwhite/exec";
 
 export type Save = "prod" | "dev" | "peer" | "optional" | "exact" | "bundle" | "tilde";
@@ -67,9 +67,7 @@ export async function getCommand(pkg: string | string[], options: Options = {}) 
 };
 
 const install = async (pkg: string | string[], options: Options = {}) => {
-  return getCommand(pkg, options).then((command) => {
-    exec(command);
-  });
+  return getCommand(pkg, options).then((command) => exec(command));
 }
 
 export default install;
