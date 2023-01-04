@@ -56,12 +56,15 @@ export async function getCommand(pkg: string | string[], options: Options = {}) 
     const pm = packageManagers[name ?? "yarn"];
     return {
       command: pm.command,
-      args: [pm.install].concat(pkg),
-      flags: {
-        "registry": options.registry,
-        "ignore-workspace-root-check": options.ignoreWorkspaceRootCheck,
-        ...getSaveFlags(options.save, pm)
-      }
+      args: [
+        pm.install,
+        ...Array.isArray(pkg) ? pkg : [pkg],
+        {
+          "registry": options.registry,
+          "ignore-workspace-root-check": options.ignoreWorkspaceRootCheck,
+          ...getSaveFlags(options.save, pm)
+        }
+      ]
     };
   });
 }
