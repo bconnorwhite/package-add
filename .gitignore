@@ -1,2 +1,5 @@
-build
+.auto
 node_modules
+.DS_Store
+*.txt
+yarn-error.log

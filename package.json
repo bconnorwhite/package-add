@@ -2,28 +2,55 @@
   "name": "package-add",
   "version": "1.1.5",
   "description": "Programmatically install packages. Supports yarn, npm, and pnpm.",
-  "main": "./build/index.js",
+  "main": ".auto/build/index.js",
   "author": "Connor White",
   "license": "MIT",
+  "private": false,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bconnorwhite/package-add.git"
   },
+  "keywords": [
+    "add",
+    "package",
+    "manager",
+    "yarn",
+    "npm",
+    "pnpm",
+    "install"
+  ],
+  "exports": "./.auto/build/index.js",
+  "types": ".auto/build/index.d.js",
+  "files": [
+    ".auto/build/**/!(tsconfig.tsbuildinfo)"
+  ],
+  "engines": {
+    "node": "^14.13.1 || >=16.0.0"
+  },
   "scripts": {
-    "build": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start && tsc --project ./tsconfig.json",
-    "prepublishOnly": "yarn build"
+    "build": "auto build",
+    "dev": "auto dev",
+    "lint": "auto lint",
+    "prepack": "yarn build",
+    "release": "yarn version",
+    "test": "auto test",
+    "typecheck": "auto typecheck"
   },
   "dependencies": {
-    "@bconnorwhite/exec": "^4.0.0",
-    "which-pm-lockfile": "^1.0.1"
+    "@bconnorwhite/exec": "^6.0.12",
+    "which-pm-lockfile": "^1.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.1",
-    "@babel/plugin-transform-runtime": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-typescript": "^7.10.4",
-    "@types/node": "^14.0.27",
-    "typescript": "^3.9.7"
+    "autorepo": "^0.1.1"
+  },
+  "eslintConfig": {
+    "extends": "@autosoft/eslint-config"
+  },
+  "jest": {
+    "preset": "@autosoft/jest-preset"
+  },
+  "npmpackagejsonlint": {
+    "extends": "npm-package-json-lint-config-auto"
   }
 }

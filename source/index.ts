@@ -1,5 +1,5 @@
 import { getPackageManagerName, PackageManagerName } from "which-pm-lockfile";
-import exec, { Flags } from "@bconnorwhite/exec";
+import { exec, Flags } from "@bconnorwhite/exec";
 
 export type Save = "prod" | "dev" | "peer" | "optional" | "exact" | "bundle" | "tilde";
 
@@ -7,44 +7,44 @@ export type Options = {
   registry?: string;
   save?: Save;
   ignoreWorkspaceRootCheck?: boolean;
-}
+};
 
 type PackageManager = {
   command: PackageManagerName;
   install: string;
   savePrefix: string;
   save: Save[];
-  workspaces: boolean;
-}
+};
 
-const packageManagers: {
-  [name: string]: PackageManager;
-} = {
-  yarn: {
-    command: "yarn",
-    install: "add",
-    savePrefix: "",
-    save: ["dev", "peer", "optional", "exact", "tilde"],
-    workspaces: true
-  },
-  npm: {
-    command: "npm",
-    install: "install",
-    savePrefix: "save-",
-    save: ["prod", "dev", "optional", "exact", "bundle"],
-    workspaces: false
-  },
-  pnpm: {
-    command: "pnpm",
-    install: "add",
-    savePrefix: "save-",
-    save: ["prod", "dev", "peer", "optional", "exact"],
-    workspaces: true
-  }
-}
+const yarn: PackageManager = {
+  command: "yarn",
+  install: "add",
+  savePrefix: "",
+  save: ["dev", "peer", "optional", "exact", "tilde"]
+};
+
+const npm: PackageManager = {
+  command: "npm",
+  install: "install",
+  savePrefix: "save-",
+  save: ["prod", "dev", "optional", "exact", "bundle"]
+};
+
+const pnpm: PackageManager = {
+  command: "pnpm",
+  install: "add",
+  savePrefix: "save-",
+  save: ["prod", "dev", "peer", "optional", "exact"]
+};
+
+const packageManagers = {
+  yarn,
+  npm,
+  pnpm
+} as const;
 
 function getSaveFlags(save: Save | undefined, pm: PackageManager): Flags {
-  let retval: Flags = {};
+  const retval: Flags = {};
   if(save && pm.save.includes(save)) {
     retval[`${pm.savePrefix}${save}`] = true;
   }
@@ -58,16 +58,16 @@ export async function getCommand(pkg: string | string[], options: Options = {}) 
       command: pm.command,
       args: [pm.install].concat(pkg),
       flags: {
-        registry: options.registry,
-        ...getSaveFlags(options.save, pm),
-        ["ignore-workspace-root-check"]: pm.workspaces && options.ignoreWorkspaceRootCheck
+        "registry": options.registry,
+        "ignore-workspace-root-check": options.ignoreWorkspaceRootCheck,
+        ...getSaveFlags(options.save, pm)
       }
     };
   });
-};
+}
 
 const install = async (pkg: string | string[], options: Options = {}) => {
   return getCommand(pkg, options).then((command) => exec(command));
-}
+};
 
 export default install;
