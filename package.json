@@ -33,7 +33,7 @@
     "dev": "auto dev",
     "lint": "auto lint",
     "prepack": "yarn build",
-    "release": "yarn version",
+    "release": "auto release",
     "test": "auto test",
     "typecheck": "auto typecheck"
   },
