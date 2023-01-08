@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@bconnorwhite/exec": "^6.0.12",
-    "which-pm-lockfile": "^2.0.0"
+    "which-pm-lockfile": "^2.0.1"
   },
   "devDependencies": {
     "autorepo": "^0.1.3"
